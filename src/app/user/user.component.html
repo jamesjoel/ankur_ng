@@ -1,0 +1,12 @@
+<p [ngStyle]="{'background-color': color}">
+  user works! {{teacher}}
+  <input type='text' [(ngModel)]="teacher">
+  <button type="button" (click)="clickButton(teacher)">ok</button>
+</p>
+<div>
+  <table>
+    <tr *ngFor="let data of dataName">
+      <td>{{data.name}}</td>
+    </tr>
+  </table>
+</div>
