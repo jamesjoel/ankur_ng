@@ -1,4 +1,4 @@
-<p [ngStyle]="{'background-color': color}">
+<!-- <p [ngStyle]="{'background-color': color}">
   user works! {{teacher}}
   <input type='text' [(ngModel)]="teacher">
   <button type="button" (click)="clickButton(teacher)">ok</button>
@@ -9,4 +9,13 @@
       <td>{{data.name}}</td>
     </tr>
   </table>
-</div>
+</div> -->
+
+<p>{{teacher}}</p>
+<input type="text" [(ngModel)]="teacher">
+<button type="button" (click)="updateName()">update</button>
+<table>
+  <tr *ngFor="let data of dataName;let i = index">
+    <td (click)="callFunction(data.name, i)" *ngIf="size">{{data.name === 'ankur' ? 'yes this is ankur' : data.name}}</td>
+  </tr>
+</table>

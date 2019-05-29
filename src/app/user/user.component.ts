@@ -8,10 +8,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserComponent implements OnInit {
   teacher = 'red';
-  color : string;
-
-
+  color: string;
+  size = true;
+  index: number;
   dataName = [
+    {name: 'ankur'},
+    {name: 'ankur1'},
+    {name: 'ankur2'},
+    {name: 'ankur3'},
+    {name: 'ankur4'}
   ];
   constructor(private http: HttpClient) { }
 
@@ -26,6 +31,15 @@ export class UserComponent implements OnInit {
     this.color =color;
     console.log('color', color);
 
+  }
+
+  callFunction(name: string, index: number) {
+    this.teacher = name;
+    this.index = index;
+  }
+
+  updateName() {
+    this.dataName[this.index].name = this.teacher;
   }
 
 
