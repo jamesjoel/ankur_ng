@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -18,17 +18,21 @@ export class UserComponent implements OnInit {
     {name: 'ankur3'},
     {name: 'ankur4'}
   ];
+
+  @Input() title: string;
+  @Output() titleName = new EventEmitter();
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    const name = this.http.get('http://localhost:3000');
-    console.log('name', name.subscribe((result) => {
-      console.log('result', result);
-    }));
+    // const name = this.http.get('http://localhost:3000');
+    // console.log('name', name.subscribe((result) => {
+    //   console.log('result', result);
+    // }));
   }
 
   clickButton(color: string) {
-    this.color =color;
+    this.color = color;
     console.log('color', color);
 
   }
@@ -40,6 +44,10 @@ export class UserComponent implements OnInit {
 
   updateName() {
     this.dataName[this.index].name = this.teacher;
+  }
+
+  sendDataToParent() {
+    this.titleName.emit(this.teacher);
   }
 
 

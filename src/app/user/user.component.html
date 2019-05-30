@@ -10,7 +10,8 @@
     </tr>
   </table>
 </div> -->
-
+<h2>{{title}}</h2>
+<input type="text" [(ngModel)]="title" />
 <p>{{teacher}}</p>
 <input type="text" [(ngModel)]="teacher">
 <button type="button" (click)="updateName()">update</button>
@@ -19,3 +20,5 @@
     <td (click)="callFunction(data.name, i)" *ngIf="size">{{data.name === 'ankur' ? 'yes this is ankur' : data.name}}</td>
   </tr>
 </table>
+
+<button type="button" (click)="sendDataToParent()">emit</button>

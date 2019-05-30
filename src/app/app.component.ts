@@ -15,4 +15,7 @@ export class AppComponent {
   navigateToUser() {
     this.router.navigate(['user']);
   }
+  receiveTitle(name: string) {
+    console.log('name', name);
+  }
 }
