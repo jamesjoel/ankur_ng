@@ -10,6 +10,14 @@
     </tr>
   </table>
 </div> -->
+<table>
+  <tr *ngFor="let u of user">
+    <td>{{u.userName}}</td>
+    <td>{{u.userAge}}</td>
+    <td >{{!u.city ? 'bill' : u.city }}</td>
+  </tr>
+</table>
+<h1>{{headTitle}}</h1>
 <h2>{{title}}</h2>
 <input type="text" [(ngModel)]="title" />
 <p>{{teacher}}</p>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserInfo } from './models';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,19 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'james';
+  user: UserInfo[] = [
+    {
+      userName: 'ankur',
+      userAge: 25
+    },
+    {
+      userName: 'james',
+      userAge: 29,
+      city: [
+        'sasaram', 'ujjain'
+      ]
+    }
+  ];
 
   constructor(private router: Router) {
   }

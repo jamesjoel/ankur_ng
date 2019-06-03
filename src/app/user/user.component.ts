@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UserInfo } from '../models';
 
 @Component({
   selector: 'app-user',
@@ -21,6 +22,8 @@ export class UserComponent implements OnInit {
 
   @Input() title: string;
   @Output() titleName = new EventEmitter();
+  @Input() headTitle: string;
+  @Input() user: UserInfo[];
 
   constructor(private http: HttpClient) { }
 
