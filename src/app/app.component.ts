@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserInfo } from './models';
+import { UserServiceService } from './service/user-service.service';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +23,10 @@ export class AppComponent {
       ]
     }
   ];
+  sName: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private userService: UserServiceService) {
   }
 
   navigateToUser() {
@@ -31,5 +34,13 @@ export class AppComponent {
   }
   receiveTitle(name: string) {
     console.log('name', name);
+  }
+  receiveTitleName(name: string) {
+    console.log('name', name);
+  }
+  sendData() {
+    const name = this.userService.getUserData();
+    console.log('name ', name);
+    this.sName = 'ankur keshri';
   }
 }

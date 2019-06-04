@@ -13,12 +13,13 @@
 <br/>
 <br/>
 <button type="button" (click)="navigateToUser()">user</button> -->
-
+<button type="button" (click)="sendData()">Send Data</button>
 <app-top-area></app-top-area>
 <app-side-area></app-side-area>
 <app-user
     [headTitle]="title"
     [user]="user"
+    (titleName)="receiveTitleName($event)"
 >
 </app-user>
 

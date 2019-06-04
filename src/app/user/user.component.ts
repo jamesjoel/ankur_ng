@@ -1,11 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserInfo } from '../models';
+import { UserServiceService } from '../service/user-service.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserComponent implements OnInit {
   teacher = 'red';
@@ -21,33 +23,32 @@ export class UserComponent implements OnInit {
   ];
 
   @Input() title: string;
-  @Output() titleName = new EventEmitter();
   @Input() headTitle: string;
   @Input() user: UserInfo[];
-
-  constructor(private http: HttpClient) { }
+  @Output() titleName = new EventEmitter();
+  constructor(private http: HttpClient,
+    private userService: UserServiceService) { }
 
   ngOnInit() {
     // const name = this.http.get('http://localhost:3000');
     // console.log('name', name.subscribe((result) => {
-    //   console.log('result', result);
-    // }));
-  }
+      //   console.log('result', result);
+      // }));
+    }
 
-  clickButton(color: string) {
-    this.color = color;
-    console.log('color', color);
+    clickButton(color: string) {
+      this.color = color;
+      console.log('color', color);
 
-  }
+    }
+    callFunction(name: string, index: number) {
+      this.teacher = name;
+      this.index = index;
+    }
 
-  callFunction(name: string, index: number) {
-    this.teacher = name;
-    this.index = index;
-  }
-
-  updateName() {
-    this.dataName[this.index].name = this.teacher;
-  }
+    updateName() {
+      this.dataName[this.index].name = this.teacher;
+    }
 
   sendDataToParent() {
     this.titleName.emit(this.teacher);

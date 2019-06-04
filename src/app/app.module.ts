@@ -10,6 +10,7 @@ import { TopAreaComponent } from './top-area/top-area.component';
 import { SideAreaComponent } from './side-area/side-area.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { UserServiceService } from './service/user-service.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { ContactComponent } from './contact/contact.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
