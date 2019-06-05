@@ -11,6 +11,7 @@ import { SideAreaComponent } from './side-area/side-area.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserServiceService } from './service/user-service.service';
+import { UserObservableService } from './service/user-observable.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { UserServiceService } from './service/user-service.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserServiceService],
+  providers: [UserServiceService, UserObservableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

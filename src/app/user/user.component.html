@@ -18,6 +18,9 @@
   </tr>
 </table>
 <h1>{{headTitle}}</h1>
+<h5>
+  {{message | json}}
+</h5>
 <h2>{{title}}</h2>
 <input type="text" [(ngModel)]="title" />
 <p>{{teacher}}</p>
@@ -30,3 +33,6 @@
 </table>
 
 <button type="button" (click)="sendDataToParent()">emit</button>
+<!-- <input type="text" [(ngModel)]="message" /> -->
+
+<button type="button" (click)="changeMessage()">change Message</button>

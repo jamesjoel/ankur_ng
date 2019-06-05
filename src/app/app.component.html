@@ -13,6 +13,17 @@
 <br/>
 <br/>
 <button type="button" (click)="navigateToUser()">user</button> -->
+<h6>{{message | json}}</h6>
+<input type="text" [(ngModel)]="editData" />
+<button (click)="saveUser()">Save</button>
+<table class="table" border="1" align="center">
+    <tr *ngFor="let x of message; let i = index">
+        <td>{{ x.name }}</td>
+        <td>{{ x.age }}</td>
+        <td><button (click)="userEdit(i)">Edit</button></td>
+        <td><button (click)="userDelete(i)">Delete</button></td>
+    </tr>
+</table>
 <button type="button" (click)="sendData()">Send Data</button>
 <app-top-area></app-top-area>
 <app-side-area></app-side-area>
