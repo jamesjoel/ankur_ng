@@ -12,6 +12,8 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserServiceService } from './service/user-service.service';
 import { UserObservableService } from './service/user-observable.service';
+import { NewsComponent } from './news/news.component';
+import { LiveNewsService } from './service/live-news.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { UserObservableService } from './service/user-observable.service';
     TopAreaComponent,
     SideAreaComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { UserObservableService } from './service/user-observable.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserServiceService, UserObservableService],
+  providers: [UserServiceService, UserObservableService, LiveNewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
