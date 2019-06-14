@@ -14,6 +14,8 @@ import { UserServiceService } from './service/user-service.service';
 import { UserObservableService } from './service/user-observable.service';
 import { NewsComponent } from './news/news.component';
 import { LiveNewsService } from './service/live-news.service';
+import { SharedModule } from './shared/shared.module';
+import { UserInfoModule } from './user-info/user-info.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { LiveNewsService } from './service/live-news.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    UserInfoModule
   ],
   providers: [UserServiceService, UserObservableService, LiveNewsService],
   bootstrap: [AppComponent]

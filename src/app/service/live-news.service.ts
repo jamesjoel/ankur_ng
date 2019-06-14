@@ -10,6 +10,13 @@ import { Observable, of } from 'rxjs';
 export class LiveNewsService {
   name = 'james';
   sport = 'football';
+
+  information = [
+    {
+      name: 'abc',
+      age: 24
+    }
+  ];
   constructor(
     private http: HttpClient
   ) { }
@@ -20,5 +27,9 @@ export class LiveNewsService {
   }
   getData(): Observable<string> {
     return of('abc');
+  }
+
+  getInfo(): Observable<any[]> {
+    return of([this.information]);
   }
 }

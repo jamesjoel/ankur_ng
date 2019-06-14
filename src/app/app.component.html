@@ -13,6 +13,7 @@
 <br/>
 <br/>
 <button type="button" (click)="navigateToUser()">user</button> -->
+<app-loading></app-loading>
 <app-news></app-news>
 <h6>{{message | json}}</h6>
 <input type="text" [(ngModel)]="editData" />
@@ -25,6 +26,15 @@
         <td><button (click)="userDelete(i)">Delete</button></td>
     </tr>
 </table>
+<table class="table" border="1" align="center">
+    <tr *ngFor="let x of user; let i = index">
+        <td>{{ x.username }}</td>
+        <td>{{ x.age }}</td>
+        <td><button (click)="userEdit(i)">Edit</button></td>
+        <td><button (click)="userDelete(i)">Delete</button></td>
+    </tr>
+</table>
+
 <button type="button" (click)="sendData()">Send Data</button>
 <app-top-area></app-top-area>
 <app-side-area></app-side-area>

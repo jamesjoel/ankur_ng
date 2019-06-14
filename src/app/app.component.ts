@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { Router, ChildActivationEnd } from '@angular/router';
 import { UserInfo } from './models';
 import { UserServiceService } from './service/user-service.service';
 import { UserObservableService } from './service/user-observable.service';
+import { UserComponent } from './user/user.component';
 interface StuData {
   name: string;
   age: number;
@@ -13,6 +14,8 @@ interface StuData {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  @ViewChild(UserComponent) users;
   editData:string;
   title = 'james';
   message: StuData[];
@@ -29,7 +32,7 @@ export class AppComponent implements OnInit {
       ]
     }
   ];
-  i:number;
+  i: number;
   sName: string;
 
   constructor(private router: Router,
@@ -39,6 +42,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getObservableData();
+    console.log('child', this.users);
   }
 
   navigateToUser() {
