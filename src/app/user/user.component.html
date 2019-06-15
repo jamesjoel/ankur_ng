@@ -24,9 +24,9 @@
 <h2>{{title}}</h2>
 <input type="text" [(ngModel)]="title" />
 <p>{{teacher}}</p>
-<input type="text" [(ngModel)]="teacher">
-<button type="button" (click)="updateName()">update</button>
-<table>
+<input type="text" class="enter-text" [(ngModel)]="teacher">
+<button type="button" class="update-table" (click)="updateName()">update</button>
+<table class="show-info">
   <tr *ngFor="let data of dataName;let i = index">
     <td (click)="callFunction(data.name, i)" *ngIf="size">{{data.name === 'ankur' ? 'yes this is ankur' : data.name}}</td>
   </tr>
